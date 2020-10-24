@@ -9,14 +9,14 @@ public class program {
         Token[] tokens = {
             // new Token("WHITESPACE", "( |\n|\t)*"),
             // new Token("OPERATOR", "=|-|+|*|/"),
-            new Token("KEYWORD", "a*b*c*d"),
+            new Token("KEYWORD", "(ab*a)*|d*"),
             // new Token("TEST", "el"),
             // new Token("LITERAL", "(0|1|2|3|4|5|6|7|8|9)*"),
         };
 
         Lexer lexer = new Lexer(tokens);
 
-        ArrayList<Lexeme> lexemes = lexer.lex("aaaacbdd");
+        ArrayList<Lexeme> lexemes = lexer.lex("abbbbadddaa");
         print(lexemes);
     }
 

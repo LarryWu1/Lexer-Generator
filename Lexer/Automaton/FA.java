@@ -171,9 +171,7 @@ public class FA {
                     fas.add(curr);
                 }
                 continue;
-            }
-
-            if (regex.charAt(start[0]) == '|') {
+            } else if (regex.charAt(start[0]) == '|') {
                 fas.add(curr);
                 curr = new FA();
                 start[0] += 1;
@@ -193,10 +191,7 @@ public class FA {
             }
         }
 
-        if (fas.size() == 1) {
-            return fas.get(0);
-        }
-        return union(fas);
+        return fas.size() == 1 ? fas.get(0) : union(fas);
     }
 
     private void concat(FA a) {

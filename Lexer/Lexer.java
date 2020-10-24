@@ -37,8 +37,6 @@ public class Lexer {
 
                 if (!hasMore) {
                     break;
-                } else if (i == program.length() - 1) {
-                    acceptIdx = i;
                 }
             }
             System.out.println(program);
