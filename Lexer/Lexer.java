@@ -39,17 +39,17 @@ public class Lexer {
                     break;
                 }
             }
-            System.out.println(program);
-            System.out.println(start + ", " + acceptIdx + ", " + acceptTokenIdx);
             if (acceptIdx == -1) {
                 lexemes.add(new Lexeme("ERROR => CHARACTER: '" + program.charAt(start) +  "' AT INDEX: " + Integer.toString(start), null));
                 return lexemes;
-            } else {
+            }
+
+            if (!this.tokens[acceptTokenIdx].ignore) {
                 lexemes.add(new Lexeme(this.tokens[acceptTokenIdx].type, program.substring(start, acceptIdx + 1)));
-                start = acceptIdx + 1;
-                for (int i = 0; i < this.tokens.length; i += 1) {
-                    this.tokens[i].reset();
-                }
+            }
+            start = acceptIdx + 1;
+            for (int i = 0; i < this.tokens.length; i += 1) {
+                this.tokens[i].reset();
             }
         }
 
